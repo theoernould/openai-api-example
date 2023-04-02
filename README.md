@@ -1,6 +1,6 @@
-# OpenAI API CLI
+# OpenAI API Example
 
-OpenAI API CLI is a user-friendly command-line interface that enables seamless interaction with OpenAI's powerful AI services. The application offers a range of features, such as engaging in natural language conversations with the AI assistant, generating images from textual descriptions, and more. This tool aims to provide users with an accessible and efficient way to leverage the OpenAI API, unlocking its potential for various use cases and applications.
+OpenAI API Example is a user-friendly command-line interface that enables seamless interaction with OpenAI's powerful AI services. The application offers a range of features, such as engaging in natural language conversations with the AI assistant, generating images from textual descriptions, and more. This tool aims to provide users with an accessible and efficient way to leverage the OpenAI API, unlocking its potential for various use cases and applications.
 
 ## Prerequisites
 
