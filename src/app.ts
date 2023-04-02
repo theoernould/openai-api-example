@@ -3,9 +3,9 @@ config();
 
 import { Configuration, OpenAIApi } from "openai";
 // @ts-ignore
-import readline from "readline";
+import readline, {clearLine, cursorTo} from "readline";
 import {Command} from "./models/command";
-import {colors, colorText} from "./services/utils";
+import {clearUserInput, colors, colorText, printFormattedMessage, showLoader} from "./services/utils";
 import {printCommands} from "./commands/commands";
 import {commandsList} from "./enums/commandsList";
 import {Modes} from "./enums/modes";
@@ -23,7 +23,7 @@ const userInterface = readline.createInterface({
 
 export const commandsPrefix: string = "/";
 export let mode = {
-    state: Modes.Chat
+    state: Modes.None
 }
 
 console.clear();
@@ -34,6 +34,8 @@ printCommands();
 
 userInterface.prompt();
 userInterface.on('line', async (input: string) => {
+    clearUserInput();
+    printFormattedMessage(new Date(), "User", input);
     if (input.startsWith(commandsPrefix)) {
         // get command name and input after command name like /chat hello je veux hello
         const elements: string[] = input.split(" ");
@@ -41,10 +43,12 @@ userInterface.on('line', async (input: string) => {
         const commandInput: string = elements.slice(1).join(" ");
         const command: Command = commandsList.find(command => command.name === commandName) as Command;
         if (command) {
-            await command.handler(commandInput);
+            command.handler(commandInput);
         }
     } else {
         switch (mode.state) {
+            case Modes.None:
+                break;
             case Modes.Chat:
                 await chat(input);
                 break;

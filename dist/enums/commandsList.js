@@ -16,5 +16,10 @@ export const commandsList = [
         name: "commands",
         title: "Show commands",
         handler: printCommands
+    },
+    {
+        name: "clear",
+        title: "Clear console",
+        handler: () => console.clear()
     }
 ];
