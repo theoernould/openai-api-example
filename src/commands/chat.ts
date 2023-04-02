@@ -1,11 +1,4 @@
-import {
-    colors,
-    colorText,
-    firstLetterUpperCase,
-    hideLoader,
-    printFormattedMessage,
-    showLoader
-} from "../services/utils";
+import {colors, colorText, hideLoader, printFormattedMessage, showLoader} from "../services/utils";
 import {mode, openai} from "../app";
 import {Modes} from "../enums/modes";
 import {ChatCompletionRequestMessage, ChatCompletionResponseMessage} from "openai";
@@ -31,7 +24,7 @@ function printMessage(message: any) {
 }
 
 export async function chat(input: string) {
-    if(input.trim() != "") {
+    if (input.trim() != "") {
         showLoader();
         const userMsg: ChatCompletionRequestMessage = {
             role: "user",

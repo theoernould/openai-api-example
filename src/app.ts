@@ -1,16 +1,15 @@
-import { config } from 'dotenv';
-config();
-
-import { Configuration, OpenAIApi } from "openai";
-// @ts-ignore
-import readline, {clearLine, cursorTo} from "readline";
+import {config} from 'dotenv';
+import {Configuration, OpenAIApi} from "openai";
+import readline from "readline";
 import {Command} from "./models/command";
-import {clearUserInput, colors, colorText, printFormattedMessage, showLoader} from "./services/utils";
+import {clearUserInput, colors, colorText, printFormattedMessage} from "./services/utils";
 import {printCommands} from "./commands/commands";
 import {commandsList} from "./enums/commandsList";
 import {Modes} from "./enums/modes";
 import {chat} from "./commands/chat";
 import {generateImage} from "./commands/image";
+
+config();
 
 export const openai = new OpenAIApi(new Configuration({
     apiKey: process.env.API_KEY

@@ -9,7 +9,7 @@ export async function handleImage(input: string) {
 }
 
 export async function generateImage(input: string) {
-    if(input != "") {
+    if (input != "") {
         showLoader();
         const res = await openai.createImage({
             prompt: input,

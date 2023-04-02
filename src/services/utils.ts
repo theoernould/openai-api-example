@@ -13,7 +13,7 @@ export const colors = {
 
 let loaderInterval: NodeJS.Timeout;
 
-export function firstLetterUpperCase(str: string): string  {
+export function firstLetterUpperCase(str: string): string {
     return str.charAt(0).toUpperCase() + str.slice(1);
 }
 
